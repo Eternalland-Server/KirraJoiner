@@ -1,4 +1,4 @@
-package me.skymc.customized.kirrajoiner
+package net.sakuragame.eternal.kirrajoiner
 
 import net.sakuragame.kirracore.bukkit.KirraCoreBukkitAPI
 import org.bukkit.Material

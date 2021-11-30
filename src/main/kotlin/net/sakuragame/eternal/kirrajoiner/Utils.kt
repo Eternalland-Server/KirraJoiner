@@ -1,4 +1,4 @@
-package me.skymc.customized.kirrajoiner
+package net.sakuragame.eternal.kirrajoiner
 
 import org.bukkit.GameMode
 import org.bukkit.Material
