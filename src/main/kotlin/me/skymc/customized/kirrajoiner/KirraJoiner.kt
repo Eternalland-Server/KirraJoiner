@@ -1,7 +1,9 @@
 package me.skymc.customized.kirrajoiner
 
 import net.sakuragame.kirracore.bukkit.KirraCoreBukkitAPI
-import org.bukkit.event.player.PlayerPortalEvent
+import org.bukkit.Material
+import org.bukkit.event.player.PlayerMoveEvent
+import org.bukkit.event.player.PlayerQuitEvent
 import taboolib.common.platform.Plugin
 import taboolib.common.platform.event.SubscribeEvent
 import taboolib.common5.Baffle
@@ -14,11 +16,18 @@ object KirraJoiner : Plugin() {
     }
 
     @SubscribeEvent
-    fun e(e: PlayerPortalEvent) {
-        if (!baffle.hasNext(e.player.name)) {
+    fun e(e: PlayerMoveEvent) {
+        val player = e.player
+        player.reset(closeInventory = true, clearInventory = true)
+        if (e.to.clone().subtract(0.0, 1.0, 0.0).block.type != Material.OBSIDIAN || !baffle.hasNext(player.name)) {
             return
         }
-        baffle.next()
-        KirraCoreBukkitAPI.teleportPlayerToHudServer(e.player)
+        KirraCoreBukkitAPI.teleportPlayerToHudServer(player)
+        baffle.next(player.name)
+    }
+
+    @SubscribeEvent
+    fun e(e: PlayerQuitEvent) {
+        baffle.reset(e.player.name)
     }
 }
