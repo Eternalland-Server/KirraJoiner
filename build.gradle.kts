@@ -7,7 +7,7 @@ plugins {
 taboolib {
     description {
         dependencies {
-            name("KirraCore")
+            name("KirraCoreBukkit")
         }
     }
     install("common")
