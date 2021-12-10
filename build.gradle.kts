@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("net.sakuragame.eternalland:KirraCore-Bukkit:1.0.8-SNAPSHOT@jar")
+    compileOnly("net.sakuragame.eternal:KirraCore-Bukkit:1.0.9-SNAPSHOT@jar")
     compileOnly("ink.ptms.core:v11200:11200:all@jar")
     compileOnly("ink.ptms:nms-all:1.0.0")
     compileOnly(kotlin("stdlib"))

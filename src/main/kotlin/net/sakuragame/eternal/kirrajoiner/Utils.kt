@@ -1,10 +1,13 @@
 package net.sakuragame.eternal.kirrajoiner
 
+import org.bukkit.ChatColor
 import org.bukkit.GameMode
 import org.bukkit.Material
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
+
+fun String.colored() = ChatColor.translateAlternateColorCodes('&', this)!!
 
 fun Player.reset(closeInventory: Boolean, clearInventory: Boolean) {
     (this as CraftPlayer).handle.absorptionHearts = 0f

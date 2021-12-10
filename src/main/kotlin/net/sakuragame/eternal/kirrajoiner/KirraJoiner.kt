@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 object KirraJoiner : Plugin() {
 
     val baffle by lazy {
-        Baffle.of(2, TimeUnit.SECONDS)
+        Baffle.of(10, TimeUnit.SECONDS)
     }
 
     @SubscribeEvent
@@ -22,7 +22,8 @@ object KirraJoiner : Plugin() {
         if (e.to.clone().subtract(0.0, 1.0, 0.0).block.type != Material.OBSIDIAN || !baffle.hasNext(player.name)) {
             return
         }
-        KirraCoreBukkitAPI.teleportPlayerToHudServer(player)
+        KirraCoreBukkitAPI.teleportToSpawnServer(player)
+        player.sendTitle("", "&6&l正在传送.".colored(), 10, 1000, 10)
         baffle.next(player.name)
     }
 
