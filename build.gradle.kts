@@ -29,6 +29,8 @@ repositories {
 }
 
 dependencies {
+    compileOnly("net.sakuragame:DungeonSystem-Client-API:1.1.3-SNAPSHOT@jar")
+    compileOnly("net.sakuragame.eternal:BetonQuest:1.13.0-SNAPSHOT@jar")
     compileOnly("net.sakuragame.eternal:KirraCore-Bukkit:1.0.9-SNAPSHOT@jar")
     compileOnly("ink.ptms.core:v11200:11200:all@jar")
     compileOnly("ink.ptms:nms-all:1.0.0")

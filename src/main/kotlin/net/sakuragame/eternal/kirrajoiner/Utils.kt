@@ -6,6 +6,17 @@ import org.bukkit.Material
 import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
+import pl.betoncraft.betonquest.BetonQuest
+
+fun getSymbolByIndex(index: Int): String {
+    return when (index) {
+        0 -> "|"
+        1 -> "/"
+        2 -> "-"
+        3 -> "\\"
+        else -> ""
+    }
+}
 
 fun String.colored() = ChatColor.translateAlternateColorCodes('&', this)!!
 
@@ -34,4 +45,8 @@ fun Player.reset(closeInventory: Boolean, clearInventory: Boolean) {
     activePotionEffects.forEach {
         removePotionEffect(it.type)
     }
+}
+
+fun Player.getNoobiePoints(): Int? {
+    return BetonQuest.getInstance().getPlayerData(uniqueId).points.find { it.category == "noobie_quest" }?.count
 }
