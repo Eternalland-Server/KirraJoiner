@@ -14,7 +14,7 @@ taboolib {
     install("common-5")
     install("platform-bukkit")
     classifier = null
-    version = "6.0.5-9"
+    version = "6.0.7-26"
 }
 
 repositories {
@@ -31,8 +31,8 @@ repositories {
 dependencies {
     compileOnly("net.sakuragame:DungeonSystem-Client-API:1.1.3-SNAPSHOT@jar")
     compileOnly("net.sakuragame.eternal:BetonQuest:1.13.0-SNAPSHOT@jar")
-    compileOnly("net.sakuragame.eternal:KirraCore-Bukkit:1.0.9-SNAPSHOT@jar")
-    compileOnly("ink.ptms.core:v11200:11200:all@jar")
+    compileOnly("net.sakuragame.eternal:KirraCore-Bukkit:1.1.6-SNAPSHOT@jar")
+    compileOnly("ink.ptms.core:v11200:11200")
     compileOnly("ink.ptms:nms-all:1.0.0")
     compileOnly(kotlin("stdlib"))
     compileOnly(fileTree("libs"))

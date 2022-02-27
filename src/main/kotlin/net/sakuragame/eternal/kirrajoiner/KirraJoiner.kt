@@ -10,7 +10,6 @@ import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.event.player.PlayerQuitEvent
 import taboolib.common.platform.Plugin
 import taboolib.common.platform.event.SubscribeEvent
-import taboolib.common.platform.function.submit
 import taboolib.common5.Baffle
 import taboolib.platform.BukkitPlugin
 import taboolib.platform.util.sendLang
@@ -23,7 +22,7 @@ object KirraJoiner : Plugin() {
         BukkitPlugin.getInstance()
     }
 
-    val baffle by lazy {
+    private val baffle by lazy {
         Baffle.of(10, TimeUnit.SECONDS)
     }
 
@@ -64,16 +63,7 @@ object KirraJoiner : Plugin() {
     }
 
     private fun doAnimation(player: Player) {
-        var index = 0
-        submit(async = true, delay = 0L, period = 10L) {
-            if (!player.isOnline || baffle.hasNext(player.name)) {
-                cancel()
-                return@submit
-            }
-            index++
-            if (index >= 4) index = 0
-            player.sendTitle("", "&6&l➱ &e正在唤醒角色 (${player.name}) &7${getSymbolByIndex(index)}".colored(), 0, 20, 0)
-        }
+        KirraCoreBukkitAPI.showLoadingTitle(player, "&6&l➱ &e正在唤醒角色 (${player.name}) &7@", true)
     }
 
     private fun doJoin(player: Player) {
