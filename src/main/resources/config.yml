@@ -1,0 +1,7 @@
+settings:
+  database:
+    host: 172.18.0.1
+    port: 3306
+    user: rpg-test
+    password: jPGbpbpCy3W5Ssmz
+    database: rpg-test

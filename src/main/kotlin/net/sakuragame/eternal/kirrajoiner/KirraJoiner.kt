@@ -10,13 +10,20 @@ import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.event.player.PlayerQuitEvent
 import taboolib.common.platform.Plugin
 import taboolib.common.platform.event.SubscribeEvent
+import taboolib.common.platform.function.submit
 import taboolib.common5.Baffle
+import taboolib.module.configuration.Config
+import taboolib.module.configuration.Configuration
 import taboolib.platform.BukkitPlugin
 import taboolib.platform.util.sendLang
 import java.util.concurrent.TimeUnit
 
 @Suppress("SpellCheckingInspection")
 object KirraJoiner : Plugin() {
+
+    @Config
+    lateinit var conf: Configuration
+        private set
 
     val plugin by lazy {
         BukkitPlugin.getInstance()
@@ -63,18 +70,20 @@ object KirraJoiner : Plugin() {
     }
 
     private fun doAnimation(player: Player) {
-        KirraCoreBukkitAPI.showLoadingTitle(player, "&6&l➱ &e正在唤醒角色 (${player.name}) &7@", true)
+        KirraCoreBukkitAPI.showLoadingTitle(player, "&6&l➱ &e正在唤醒角色 (${player.name}) &7@", "&f使用 &b&l全屏 &f以获得最好的游戏体验!", true)
     }
 
     private fun doJoin(player: Player) {
-        if (player.hasPermission("noobie_tutorial") || player.getNoobiePoints() != null) {
-            KirraCoreBukkitAPI.teleportToSpawnServer(player)
-            return
-        }
-        val isSucc = StoryDungeonCompat.join(player)
-        if (!isSucc) {
-            baffle.reset(player.name)
-            player.sendLang("player-first-teleport-failed")
+        submit(async = true) {
+            if (player.hasPermission("noobie_tutorial") || player.getNoobiePoints() != null) {
+                KirraCoreBukkitAPI.teleportToSpawnServer(player)
+                return@submit
+            }
+            val isSucc = StoryDungeonCompat.join(player)
+            if (!isSucc) {
+                baffle.reset(player.name)
+                player.sendLang("player-first-teleport-failed")
+            }
         }
     }
 }
