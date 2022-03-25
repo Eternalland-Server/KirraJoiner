@@ -36,6 +36,8 @@ dependencies {
     compileOnly("net.sakuragame:DataManager-Bukkit-API:1.3.2-SNAPSHOT@jar")
     compileOnly("net.sakuragame:DungeonSystem-Client-API:1.1.3-SNAPSHOT@jar")
     compileOnly("net.sakuragame.eternal:KirraCore-Bukkit:1.1.8-SNAPSHOT@jar")
+    compileOnly("net.sakuragame.eternal:JustMessage:1.0.4-SNAPSHOT@jar")
+    compileOnly("com.taylorswiftcn:UIFactory:1.0.2-SNAPSHOT@jar")
     compileOnly("ink.ptms.core:v11200:11200")
     compileOnly("ink.ptms:nms-all:1.0.0")
     compileOnly(kotlin("stdlib"))
