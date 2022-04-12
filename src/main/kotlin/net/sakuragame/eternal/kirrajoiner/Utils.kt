@@ -1,5 +1,6 @@
 package net.sakuragame.eternal.kirrajoiner
 
+import net.sakuragame.eternal.kirrajoiner.function.speedclicker.FunctionSpeedClickerGUI
 import org.bukkit.ChatColor
 import org.bukkit.GameMode
 import org.bukkit.Material
@@ -34,9 +35,14 @@ fun Player.reset(closeInventory: Boolean, clearInventory: Boolean) {
     activePotionEffects.forEach {
         removePotionEffect(it.type)
     }
+    inventory.setItem(8, FunctionSpeedClickerGUI.joinItem)
 }
 
 @Suppress("SpellCheckingInspection")
 fun Player.getNoobiePoints(): Int? {
     return Database.getCount(player, "noobie_quest")
+}
+
+fun Player.getPing(): Int {
+    return (this as CraftPlayer).handle.ping
 }

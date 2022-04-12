@@ -1,8 +1,11 @@
-package net.sakuragame.eternal.kirrajoiner
+package net.sakuragame.eternal.kirrajoiner.function
 
 import com.taylorswiftcn.megumi.uifactory.generate.function.Statements
 import net.sakuragame.eternal.justmessage.api.event.notify.NotifyBoxCancelEvent
 import net.sakuragame.eternal.justmessage.api.event.notify.NotifyBoxConfirmEvent
+import net.sakuragame.eternal.kirrajoiner.KirraJoiner
+import net.sakuragame.eternal.kirrajoiner.StoryDungeonCompat
+import net.sakuragame.eternal.kirrajoiner.colored
 import taboolib.common.platform.event.SubscribeEvent
 import taboolib.platform.util.sendLang
 
@@ -13,7 +16,7 @@ object FunctionNotifyBox {
 
     private val kickMessages by lazy {
         Statements().apply {
-            add("&6&l亘古超级英雄喷射侠之健康哥哥大耳朵图图超人强黑人科学家樱花大佐 &f对你说: ".colored())
+            add("&6&l亘古大陆之超级英雄喷射侠之健康哥哥樱花大佐 &f对你说: ".colored())
             add(" ")
             repeat(20) {
                 add("&7???¿¿¿???¿¿¿???¿¿¿???¿¿¿???¿¿¿???¿¿¿???¿¿¿???¿¿¿???¿¿¿???¿¿¿???¿¿¿".colored())

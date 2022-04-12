@@ -1,1 +1,3 @@
 player-first-teleport-failed: "&4&l➱ &c唤醒失败! 请稍后重试."
+player-speed-clicker-result: "&6&l➱ &e您的最终结果为: &f{0}ms."
+player-speed-clicker-failed: "&4&l➱ &c不能早按哦!"

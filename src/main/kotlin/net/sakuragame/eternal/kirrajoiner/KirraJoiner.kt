@@ -1,6 +1,7 @@
 package net.sakuragame.eternal.kirrajoiner
 
 import net.sakuragame.eternal.justmessage.api.common.NotifyBox
+import net.sakuragame.eternal.kirrajoiner.function.FunctionNotifyBox
 import net.sakuragame.kirracore.bukkit.KirraCoreBukkitAPI
 import org.bukkit.Material
 import org.bukkit.Sound
@@ -35,11 +36,6 @@ object KirraJoiner : Plugin() {
     }
 
     @SubscribeEvent
-    fun e(e: PlayerJoinEvent) {
-        e.player.reset(closeInventory = true, clearInventory = true)
-    }
-
-    @SubscribeEvent
     fun e(e: PlayerMoveEvent) {
         val player = e.player
         if (e.to.clone().subtract(0.0, 1.0, 0.0).block.type != Material.OBSIDIAN) {
@@ -53,20 +49,9 @@ object KirraJoiner : Plugin() {
     }
 
     @SubscribeEvent
-    fun e(e: EntityDamageEvent) {
-        e.isCancelled = true
-    }
-
-    @SubscribeEvent
     fun e(e: PlayerQuitEvent) {
         val player = e.player
         baffle.reset(player.name)
-    }
-
-    @SubscribeEvent
-    fun e(e: AsyncPlayerChatEvent) {
-        e.isCancelled = true
-        e.player.sendMessage("&4&l➱ &c当前服务器禁止聊天.".colored())
     }
 
     fun doAnimation(player: Player) {

@@ -1,6 +1,6 @@
 plugins {
     java
-    id("io.izzel.taboolib") version "1.31"
+    id("io.izzel.taboolib") version "1.34"
     id("org.jetbrains.kotlin.jvm") version "1.5.10"
 }
 
@@ -17,8 +17,11 @@ taboolib {
     install("module-chat")
     install("module-database")
     install("platform-bukkit")
+    install("module-nms")
+    install("module-nms-util")
+    install("module-ui-receptacle")
     classifier = null
-    version = "6.0.7-26"
+    version = "6.0.7-50"
 }
 
 repositories {
@@ -35,7 +38,7 @@ repositories {
 dependencies {
     compileOnly("net.sakuragame:DataManager-Bukkit-API:1.3.2-SNAPSHOT@jar")
     compileOnly("net.sakuragame:DungeonSystem-Client-API:1.1.3-SNAPSHOT@jar")
-    compileOnly("net.sakuragame.eternal:KirraCore-Bukkit:1.1.8-SNAPSHOT@jar")
+    compileOnly("net.sakuragame.eternal:KirraCore-Bukkit:1.2.2-SNAPSHOT@jar")
     compileOnly("net.sakuragame.eternal:JustMessage:1.0.4-SNAPSHOT@jar")
     compileOnly("com.taylorswiftcn:UIFactory:1.0.2-SNAPSHOT@jar")
     compileOnly("ink.ptms.core:v11200:11200")
