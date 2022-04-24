@@ -38,7 +38,6 @@ object FunctionSpeedClickerListener {
             }
             NONE -> return
         }
-
     }
 
     private fun Profile.reset() {

@@ -64,6 +64,7 @@ object FunctionCommonListener {
 
     @SubscribeEvent
     fun e(e: EntityDamageEvent) {
+
         if (e.entity is Player) {
             e.isCancelled = true
         }

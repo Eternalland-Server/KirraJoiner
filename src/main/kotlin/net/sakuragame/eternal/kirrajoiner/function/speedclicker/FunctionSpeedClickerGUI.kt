@@ -26,7 +26,7 @@ object FunctionSpeedClickerGUI {
 
     private val introItem by lazy {
         ItemBuilder(Material.PAPER).apply {
-            name = "&b&l亘古快男杯".colored()
+            name = "&6&l亘古快男杯".colored()
             lore += ""
             lore += "&7&o传说在上古时, 亘古大陆有一位以速度快而著名的神明...".colored()
             lore += "&7&o传闻他干什么都很快, 这不知道为什么引来了许多人的效仿, 与挑战...".colored()
