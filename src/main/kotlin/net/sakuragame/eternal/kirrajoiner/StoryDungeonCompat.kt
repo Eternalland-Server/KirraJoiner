@@ -2,7 +2,7 @@ package net.sakuragame.eternal.kirrajoiner
 
 import net.sakuragame.dungeonsystem.client.api.DungeonClientAPI
 import net.sakuragame.dungeonsystem.common.handler.MapRequestHandler
-import net.sakuragame.kirracore.bukkit.KirraCoreBukkitAPI
+import net.sakuragame.eternal.kirracore.bukkit.KirraCoreBukkitAPI
 import org.bukkit.entity.Player
 import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean

@@ -1,14 +1,11 @@
 package net.sakuragame.eternal.kirrajoiner
 
 import net.sakuragame.eternal.justmessage.api.common.NotifyBox
+import net.sakuragame.eternal.kirracore.bukkit.KirraCoreBukkitAPI
 import net.sakuragame.eternal.kirrajoiner.function.FunctionNotifyBox
-import net.sakuragame.kirracore.bukkit.KirraCoreBukkitAPI
 import org.bukkit.Material
 import org.bukkit.Sound
 import org.bukkit.entity.Player
-import org.bukkit.event.entity.EntityDamageEvent
-import org.bukkit.event.player.AsyncPlayerChatEvent
-import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.event.player.PlayerQuitEvent
 import taboolib.common.platform.Plugin
@@ -32,7 +29,7 @@ object KirraJoiner : Plugin() {
     }
 
     val baffle by lazy {
-        Baffle.of(10, TimeUnit.SECONDS)
+        Baffle.of(2, TimeUnit.SECONDS)
     }
 
     @SubscribeEvent
@@ -56,12 +53,12 @@ object KirraJoiner : Plugin() {
 
     fun doAnimation(player: Player) {
         player.playSound(player.location, Sound.BLOCK_END_PORTAL_FRAME_FILL, 1f, 1.5f)
-        KirraCoreBukkitAPI.showLoadingTitle(player, "","&6&l➱ &e正在唤醒角色 (${player.name}) &7@", true)
+        KirraCoreBukkitAPI.showLoadingTitle(player, "", "&6&l➱ &e正在唤醒角色 (${player.name}) &7@", true)
     }
 
     private fun doJoin(player: Player) {
         submit(async = true, delay = 3L) {
-            if (player.hasPermission("noobie_tutorial") || player.getNoobiePoints() != null) {
+            if (player.hasPermission("noobie_tutorial")) {
                 KirraCoreBukkitAPI.teleportToSpawnServer(player)
                 doAnimation(player)
                 return@submit

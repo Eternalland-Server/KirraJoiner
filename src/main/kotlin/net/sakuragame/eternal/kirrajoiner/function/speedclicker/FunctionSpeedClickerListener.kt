@@ -39,7 +39,6 @@ object FunctionSpeedClickerListener {
             NONE -> return
         }
     }
-
     private fun Profile.reset() {
         speedClickerTask?.cancel()
         speedClickerTask = null

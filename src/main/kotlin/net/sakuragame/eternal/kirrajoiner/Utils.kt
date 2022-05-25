@@ -38,11 +38,6 @@ fun Player.reset(closeInventory: Boolean, clearInventory: Boolean) {
     inventory.setItem(8, FunctionSpeedClickerGUI.joinItem)
 }
 
-@Suppress("SpellCheckingInspection")
-fun Player.getNoobiePoints(): Int? {
-    return Database.getCount(player, "noobie_quest")
-}
-
 fun Player.getPing(): Int {
     return (this as CraftPlayer).handle.ping
 }
