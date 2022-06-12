@@ -67,8 +67,8 @@ object KirraJoiner : Plugin() {
             player.playSound(player.location, Sound.BLOCK_ANVIL_LAND, 1f, 1.5f)
             submit(delay = 3L) {
                 NotifyBox(FunctionNotifyBox.KEY, "&6&l提示", listOf("我们强烈建议您使用全屏游戏", "以获得最好的游戏体验."))
-                    .setConfirmText("好")
-                    .setCancelText("我拒绝")
+                    .setConfirmText("我知道了")
+                    .setCancelText("我偏不")
                     .open(player, false)
             }
         }

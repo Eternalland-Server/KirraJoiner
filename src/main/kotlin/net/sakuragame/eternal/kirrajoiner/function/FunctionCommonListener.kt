@@ -1,7 +1,6 @@
 package net.sakuragame.eternal.kirrajoiner.function
 
 import net.sakuragame.eternal.kirrajoiner.colored
-import net.sakuragame.eternal.kirrajoiner.function.speedclicker.FunctionSpeedClickerGUI
 import net.sakuragame.eternal.kirrajoiner.reset
 import org.bukkit.GameMode
 import org.bukkit.entity.Player
@@ -9,7 +8,6 @@ import org.bukkit.event.block.BlockPlaceEvent
 import org.bukkit.event.entity.EntityDamageByEntityEvent
 import org.bukkit.event.entity.EntityDamageEvent
 import org.bukkit.event.inventory.InventoryClickEvent
-import org.bukkit.event.inventory.InventoryMoveItemEvent
 import org.bukkit.event.player.AsyncPlayerChatEvent
 import org.bukkit.event.player.PlayerDropItemEvent
 import org.bukkit.event.player.PlayerJoinEvent
@@ -64,7 +62,6 @@ object FunctionCommonListener {
 
     @SubscribeEvent
     fun e(e: EntityDamageEvent) {
-
         if (e.entity is Player) {
             e.isCancelled = true
         }

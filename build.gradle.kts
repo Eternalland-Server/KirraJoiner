@@ -21,7 +21,7 @@ taboolib {
     install("module-nms-util")
     install("module-ui-receptacle")
     classifier = null
-    version = "6.0.7-50"
+    version = "6.0.8-9"
 }
 
 repositories {
