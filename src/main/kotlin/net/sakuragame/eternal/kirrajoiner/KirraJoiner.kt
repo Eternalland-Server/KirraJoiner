@@ -53,13 +53,13 @@ object KirraJoiner : Plugin() {
 
     fun doAnimation(player: Player) {
         player.playSound(player.location, Sound.BLOCK_END_PORTAL_FRAME_FILL, 1f, 1.5f)
-        KirraCoreBukkitAPI.showLoadingTitle(player, "", "&6&l➱ &e正在唤醒角色 (${player.name}) &7@", true)
+        KirraCoreBukkitAPI.showLoadingAnimation(player, "&6&l➱ &e正在唤醒角色 (${player.name}) &7@", true)
     }
 
     private fun doJoin(player: Player) {
         submit(async = true, delay = 3L) {
             if (player.hasPermission("noobie_tutorial")) {
-                KirraCoreBukkitAPI.teleportToSpawnServer(player)
+                KirraCoreBukkitAPI.teleportPlayerToServerByBalancing("rpg-spawn", player.uniqueId)
                 doAnimation(player)
                 return@submit
             }

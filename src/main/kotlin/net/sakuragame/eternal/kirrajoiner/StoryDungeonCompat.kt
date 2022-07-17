@@ -11,9 +11,9 @@ object StoryDungeonCompat {
 
     @Suppress("SpellCheckingInspection")
     fun join(player: Player): Boolean {
-        val serverId = DungeonClientAPI.getClientManager().queryServer("rpg-story") ?: return false
+        val query = DungeonClientAPI.getClientManager().queryServer("rpg-story") ?: return false
         val isSucc = AtomicBoolean(true)
-        DungeonClientAPI.getClientManager().queryDungeon("nergigante_dragon", serverId, LinkedHashSet<Player>().apply {
+        DungeonClientAPI.getClientManager().queryDungeon("nergigante_dragon", query, LinkedHashSet<Player>().apply {
             add(player)
         }, object : MapRequestHandler() {
 
@@ -26,7 +26,7 @@ object StoryDungeonCompat {
             }
 
             override fun handle(serverID: String, mapUUID: UUID) {
-                KirraCoreBukkitAPI.teleportPlayerToAnotherServer(serverID, player)
+                KirraCoreBukkitAPI.teleportPlayerToServerByBalancing(serverID, player.uniqueId)
             }
         })
         return isSucc.get()
