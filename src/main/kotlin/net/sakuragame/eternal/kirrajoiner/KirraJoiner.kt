@@ -24,6 +24,9 @@ object KirraJoiner : Plugin() {
     lateinit var conf: Configuration
         private set
 
+    val teleportTo: String
+        get() = conf.getString("settings.teleport-to")!!
+
     val plugin by lazy {
         BukkitPlugin.getInstance()
     }
@@ -59,7 +62,7 @@ object KirraJoiner : Plugin() {
     private fun doJoin(player: Player) {
         submit(async = true, delay = 3L) {
             if (player.hasPermission("noobie_tutorial")) {
-                KirraCoreBukkitAPI.teleportPlayerToServerByBalancing("rpg-spawn", player.uniqueId)
+                KirraCoreBukkitAPI.teleportPlayerToServerByBalancing(teleportTo, player.uniqueId)
                 doAnimation(player)
                 return@submit
             }

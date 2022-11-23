@@ -5,3 +5,4 @@ settings:
     user: rpg-test
     password: jPGbpbpCy3W5Ssmz
     database: rpg-test
+  teleport-to: "test"

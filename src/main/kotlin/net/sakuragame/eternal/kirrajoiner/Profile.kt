@@ -32,7 +32,7 @@ class Profile(val player: Player) {
 
         private val profiles = mutableMapOf<String, Profile>()
 
-        fun Player.profile() = profiles.values.firstOrNull { it.player.uniqueId == uniqueId }
+        fun Player.profile() = profiles.values.find { it.player.uniqueId == uniqueId }
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         fun e(e: PlayerJoinEvent) {
